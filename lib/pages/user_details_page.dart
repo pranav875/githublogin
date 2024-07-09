@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class FourthPage extends StatefulWidget {
+class UserDetailsPage extends StatefulWidget {
   @override
-  _FourthPageState createState() => _FourthPageState();
+  _UserDetailsPageState createState() => _UserDetailsPageState();
 }
 
-class _FourthPageState extends State<FourthPage> {
+class _UserDetailsPageState extends State<UserDetailsPage> {
   final _formKey = GlobalKey<FormState>();
   String _name = '';
   int _age = 0;
@@ -13,6 +13,12 @@ class _FourthPageState extends State<FourthPage> {
   String _address = '';
   String _gender = '';
   String _motherTongue = '';
+  String _nationality = '';
+  String _medicalIssues = '';
+  String _preferableLanguage = '';
+  String _emergencyContact = '';
+  String _occupation = '';
+
   DateTime _dateOfBirth = DateTime.now();
 
   @override
@@ -50,6 +56,27 @@ class _FourthPageState extends State<FourthPage> {
                 decoration: InputDecoration(labelText: 'Mother Tongue'),
                 onSaved: (value) => _motherTongue = value!,
               ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Nationality'),
+                onSaved: (value) => _nationality = value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Medical Issues'),
+                onSaved: (value) => _medicalIssues = value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Preferable Language'),
+                onSaved: (value) => _preferableLanguage = value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Emergency Contact'),
+                onSaved: (value) => _emergencyContact = value!,
+              ),
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Occupation'),
+                onSaved: (value) => _occupation = value!,
+              ),
+
               ListTile(
                 title: Text("Date of Birth"),
                 subtitle: Text("${_dateOfBirth.toLocal()}".split(' ')[0]),
@@ -74,6 +101,15 @@ class _FourthPageState extends State<FourthPage> {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     // Process the data
+
+                    // Show success message
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Form submitted successfully!'),
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
                   }
                 },
               ),

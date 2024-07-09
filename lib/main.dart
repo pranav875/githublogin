@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/first_page.dart';
+import 'pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FirstPage(),
+      home: LoginPage(),
     );
   }
 }
